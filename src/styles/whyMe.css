@@ -1,0 +1,43 @@
+.divWhy{
+    width:100%;
+    margin: auto;
+    height: 100%;
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Comfortaa', cursive;
+    position: relative;
+}
+.divTitle{
+    padding-top:9%;
+    text-align: center;
+}
+
+.title {
+    font-size: 30px;
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Comfortaa', cursive;
+    z-index: 2;
+}
+
+.divBeneficios{
+    padding-top: 8%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 36px;
+}
+
+.wavesLeft{
+    position: absolute;
+    top: -25%;
+    left: 0;
+    width: 100%;
+}
+.wavesRight{
+    position: absolute;
+    top: 20%;
+    right: -20%;
+}
+
+.divContainer{
+    width: 70%;
+    margin: auto;
+}
