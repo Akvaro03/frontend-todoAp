@@ -1,20 +1,27 @@
 import React from 'react'
 import "../styles/header.css"
+
+import { Link } from "react-router-dom";
+
+
+
 const Header = () => {
+
+    console.log(localStorage.email)
     return(
             <header>
                 <div className="divMarca">
-                    <a href='/'>CForm</a>
+                    <Link to="/">CForm</Link>
                 </div>
                 <ul className="tags">
                     <li className="tagMini">
-                        <a href="/toDo">Cartas</a>
+                        <Link to="/toDo">Cartas</Link>
                     </li>
                     <li className="tagMini">
-                        <a href="/crearCuenta">Crear cuenta</a>
+                        <Link to="/crearCuenta">Crear cuenta</Link>
                     </li>
                     <li className="iniciarSesion">
-                        <a href="/iniciarSesion">Iniciar sesion</a>
+                        <Link to="/iniciarSesion">Iniciar sesion</Link>
                     </li>
                 </ul>
             </header>

@@ -6,8 +6,8 @@ import circulos from "../../img/blob3.svg"
 function StartUse() {
     return ( 
         <div className="startUse">
-			<div class="divTitle">
-				<h3 class="title tittleUse">
+			<div className="divTitle">
+				<h3 className="title tittleUse">
 					Empieza a crear notas
 				</h3>
 			</div>
@@ -20,6 +20,11 @@ function StartUse() {
             	<img src={celular} alt="holaa"></img>
         	</div>
 			<img src={circulos} className="circulos" alt="holaa"></img>
+
+
+
+			
+
 		</div>
     );
 }

@@ -3,17 +3,38 @@ import "../styles/form.css"
 import fondo from '../img/layered3.svg'
 import { usePeticion } from '../hooks/usePeticion';
 
+function Email(props) {
+  const modo = props.modo
+  const setUsername = props.set
+  if (modo === "crear") {
+    return (
+      <div className="email">
+      <label htmlFor="email">Username</label>
+      <div className="sec-2">
+        <ion-icon name="mail-outline"></ion-icon>
+        <input id="username2" onChange={(e) => setUsername(e.target.value)} type="text" name="username" placeholder="your name"/>
+      </div>
+    </div>
+
+    );
+  }
+}
+
 function Form(props) {
   const modo = props.modo
-  const [search, configurarModo] = usePeticion();
+  const [iniciar, crear] = usePeticion();
+  const [email, setEmail] = useState();
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
   let tittle;
   let buttonName;
-  const buscarCuenta = (e) => {
+  const buscarCuenta = (e) => { 
       e.preventDefault();
-      configurarModo(modo)
-        .then(search(username, password))
+      localStorage.clear()
+      console.log(localStorage)
+      // configurarModo(modo)
+      //   .then(search(username, password))
+      modo === "iniciar" ? iniciar(username, password, email, localStorage) : modo === "crear" ? crear(username, password, email) : console.log("error")
   };
 
   if (modo === "crear") {
@@ -25,6 +46,7 @@ function Form(props) {
   }
   
   return ( 
+    <>
       <div className="contenedor">
           <div className="form">
               <img className="fondo" src={fondo} alt="svg botton"></img>
@@ -37,9 +59,12 @@ function Form(props) {
                     <label htmlFor="email">Email Address</label>
                     <div className="sec-2">
                       <ion-icon name="mail-outline"></ion-icon>
-                      <input id="email" onChange={(e) => setUsername(e.target.value)} type="email" name="email" placeholder="ejemplo@gmail.com"/>
+                      <input id="email1" onChange={(e) => setEmail(e.target.value)} type="email" name="email" placeholder="ejemplo@gmail.com"/>
                     </div>
                   </div>
+                  
+                  <Email modo={modo} set={ setUsername }/>
+
                   <div className="password">
                     <label htmlFor="password">Password</label>
                     <div className="sec-2">
@@ -53,6 +78,7 @@ function Form(props) {
               </div>
           </div>
       </div>
+    </>
 );
 }
 

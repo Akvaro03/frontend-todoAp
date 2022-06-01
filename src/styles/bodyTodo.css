@@ -1,0 +1,13 @@
+.containerTodo{
+    background-color: rgb(216, 216, 216);
+    height:100%;
+    margin:0;
+    display: grid;
+    grid-template-columns: 1fr 5fr
+}
+
+.buttonPlus{
+	position: fixed;
+	bottom: 5%;
+	right: 3%;
+}

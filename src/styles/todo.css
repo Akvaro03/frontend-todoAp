@@ -1,0 +1,58 @@
+.container-list{
+    width: 95%;
+    height: 50px;
+    margin: 1.5% auto;
+    background: #F9FAFC;
+    box-shadow: rgb(34 51 84 / 40%) 0px 2px 4px -3px, rgb(34 51 84 / 20%) 0px 5px 16px -4px;
+
+    display: flex;
+    align-items: center;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    font-weight: 500;
+    border-radius: 7px;
+}
+.data{
+    display: flex;
+    align-items: center;
+    width: 35%;
+}
+
+.item{
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+}
+
+.collection{
+    width: 20%;
+    display: flex;
+}
+
+.texCollection{
+    padding-left: 5px;
+    color: rgb(138, 138, 138);
+    font-weight: 600;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.date{
+    display: flex;
+    font-size: 14px;
+    gap: 9px;
+    padding-right: 2%;
+    justify-content: flex-start;
+}
+
+.container-list > .date > p{
+    color: rgb(30, 155, 130);
+}
+
+.extras{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
