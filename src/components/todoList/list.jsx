@@ -2,7 +2,24 @@ import React from 'react';
 import "../../styles/list.css"
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import {Todo} from '../index';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchAllUsers } from '../../redux/slices/users';
+
 function List() {
+    const { list } = useSelector(state => state.users);
+    const collections23 = [];
+
+    const dispatch = useDispatch();
+ 
+    React.useEffect(() => {
+        dispatch(fetchAllUsers());
+    }, [dispatch])
+
+    list.map(user => collections23.push(user))
+
+
+
+
     const task1 = {
         name: 'Comprar componentes',
         color:"black",

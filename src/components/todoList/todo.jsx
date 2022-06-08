@@ -9,7 +9,6 @@ import AttachEmailIcon from '@mui/icons-material/AttachEmail';
 import AutoAwesomeMotionIcon from '@mui/icons-material/AutoAwesomeMotion';
 import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 import BookmarksIcon from '@mui/icons-material/Bookmarks';
-
 function Icons(props) {
     const icon = props.icon;
 

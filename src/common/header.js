@@ -1,13 +1,16 @@
 import React from 'react'
 import "../styles/header.css"
 
+// import useSelector from
+
 import { Link } from "react-router-dom";
 
 
 
 const Header = () => {
+    // const { list: users } = useSelector(state => state.users);
 
-    console.log(localStorage.email)
+    // console.log(localStorage.email)
     return(
             <header>
                 <div className="divMarca">

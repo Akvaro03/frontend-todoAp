@@ -6,9 +6,7 @@ import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 import BookmarksIcon from '@mui/icons-material/Bookmarks';
 
 export default function useIcons() {
-    const handleIcon = (icon, theme) => {
-        console.log(icon)
-        
+    const handleIcon = (icon, theme) => {        
         switch (icon) {
             case "cart":
                 return <ShoppingCartIcon style={{ color: theme }} color="action" />;

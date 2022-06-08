@@ -5,6 +5,8 @@ import { IconButton } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 import Badge from '@mui/material/Badge';
+import { handleChange } from '../../redux/slices/users';
+import { useDispatch } from 'react-redux';
 const StyledBadge = styled(Badge)(({ border }) => ({
     '& .MuiBadge-badge': {
         border: `2px solid ${border}`,
@@ -18,7 +20,11 @@ const StyledBadge = styled(Badge)(({ border }) => ({
 
 function Collection({name, theme, icon}) {
     const [handleIcon] = useIcons()
+    const dispatch = useDispatch();
 
+    let cambiarEstado = () => {
+        dispatch(handleChange("hola"));
+    }
     let configuracion = {};
     if (theme === "white") {
         configuracion = {
@@ -27,7 +33,7 @@ function Collection({name, theme, icon}) {
     }
     
     return (
-        <div className="list list-active" style={configuracion}>
+        <div className="list list-active" style={configuracion} onClick={cambiarEstado}>
             <div className="icon-list">
                 <IconButton aria-label="cart">
                     <StyledBadge badgeContent={4} border={theme} color="secondary">

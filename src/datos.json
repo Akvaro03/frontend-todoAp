@@ -1,0 +1,93 @@
+[
+	{
+		"name":"Buys",
+		"icon":"cart",
+		"theme":"white",
+		"active": false,
+		"collection":[
+			{
+				"name":"Comprar componentes",
+				"color":"black",
+				"collection":"Buys",
+				"day":"Today",
+				"time":"11:00 AM"
+			},
+			{
+				"name":"Comprar autos",
+				"color":"red",
+				"collection":"work",
+				"day":"Tomorrow",
+				"time":"6:00 PM"
+			},
+			{
+				"name":"Comprar falopa",
+				"color":"red",
+				"collection":"work",
+				"day":"Tomorrow",
+				"time":"6:00 PM"
+			}
+		]
+	},
+	{
+		"name":"Thinks to do",
+		"icon":"copie",
+		"theme":"grey",
+		"active": false,
+		"collection":[
+			{
+				"name":"Llevar a kira al dentista",
+				"color":"black",
+				"collection":"Buys",
+				"day":"Today",
+				"time":"11:00 AM"
+			},
+			{
+				"name":"Lavar las cosas",
+				"color":"black",
+				"collection":"Buys",
+				"day":"Today",
+				"time":"11:00 AM"
+			},
+			{
+				"name":"Ordenar la pieza",
+				"color":"black",
+				"collection":"Buys",
+				"day":"Today",
+				"time":"11:00 AM"
+			}
+		]
+	},
+	{
+		"name":"Work",
+		"icon":"Business",
+		"theme":"grey",
+		"active": false,
+		"collection":[
+			{
+				"name":"Llamar a Juan",
+				"color":"black",
+				"collection":"Buys",
+				"day":"Today",
+				"time":"11:00 AM",
+				"icon":"business"
+			},
+			{
+				"name":"Comprar placa de video",
+				"color":"black",
+				"collection":"Buys",
+				"day":"Today",
+				"time":"11:00 AM",
+				"icon":"business"
+			},
+			{
+				"name":"Hacer el header",
+				"color":"black",
+				"collection":"Buys",
+				"day":"Today",
+				"time":"11:00 AM",
+				"icon":"business"
+			}
+		]
+	}
+	
+]

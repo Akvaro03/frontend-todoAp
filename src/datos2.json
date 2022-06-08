@@ -1,0 +1,96 @@
+[
+    {
+
+	"Cart":[
+		{
+			"icon":"cart",
+			"data":[
+				{
+					"name":"Comprar componentes",
+					"color":"black",
+					"collection":"Buys",
+					"day":"Today",
+					"time":"11:00 AM"
+				},
+                {
+                    "name": "Comprar autos",
+                    "color":"red",
+                    "collection": "work",
+                    "day": "Tomorrow",
+                    "time": "6:00 PM"
+                },
+                {
+                    "name": "Comprar falopa",
+                    "color":"red",
+                    "collection": "work",
+                    "day": "Tomorrow",
+                    "time": "6:00 PM"
+                }
+
+			]
+		}
+	]},
+    {
+    "Work":[
+		{
+			"icon":"Business",
+			"data":[
+				{
+					"name":"Llamar a Juan",
+					"color":"black",
+					"collection":"Buys",
+					"day":"Today",
+					"time":"11:00 AM",
+					"icon":"business"
+				},
+                {
+					"name":"Comprar placa de video",
+					"color":"black",
+					"collection":"Buys",
+					"day":"Today",
+					"time":"11:00 AM",
+					"icon":"business"
+				},
+                {
+					"name":"Hacer el header",
+					"color":"black",
+					"collection":"Buys",
+					"day":"Today",
+					"time":"11:00 AM",
+					"icon":"business"
+				}
+
+			]
+		}
+	]},
+    {
+    "Thinks to do":[
+		{
+			"icon":"copie",
+			"data":[
+				{
+					"name":"Llevar a kira al dentista",
+					"color":"black",
+					"collection":"Buys",
+					"day":"Today",
+					"time":"11:00 AM"
+				},
+				{
+					"name":"Lavar las cosas",
+					"color":"black",
+					"collection":"Buys",
+					"day":"Today",
+					"time":"11:00 AM"
+				},
+				{
+					"name":"Ordenar la pieza",
+					"color":"black",
+					"collection":"Buys",
+					"day":"Today",
+					"time":"11:00 AM"
+				}
+			]
+		}
+	]
+    }
+]
