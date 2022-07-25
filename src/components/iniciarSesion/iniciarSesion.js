@@ -1,11 +1,12 @@
 import React from 'react';
-import {Form, Header} from '../../common/index.js';
+import {Header} from '../../common/index.js';
+import Login from '../../common/login.js';
 
 export default function IniciarSesion() {
     return (
         <div className="crearCuenta">
             <Header />
-            <Form modo="iniciar" />
+            <Login />
         </div>
     );
 }

@@ -11,7 +11,7 @@ export const userSlice = createSlice({
     reducers: {
         setUserList: (state, action) => {
             const dato = action.payload
-            const valor = dato.payload.payload;
+            // const valor = dato.payload.payload;
 
             const todo = {
                 "name":"Buys",
@@ -24,7 +24,7 @@ export const userSlice = createSlice({
                         "color":"black",
                         "collection":"Buys",
                         "day":"Today",
-                        "time":"11:00 AM"
+                        "time":"11:00 AMsdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasadsdasdasdasdasda"
                     },
                     {
                         "name":"Comprar autos",

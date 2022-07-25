@@ -1,16 +1,53 @@
 import React from 'react'
 import "../styles/header.css"
-
+import { useAuth } from '../context/authContext';
 // import useSelector from
 
 import { Link } from "react-router-dom";
-
-
+import { useSingOut } from '../hooks/useSingOut';
 
 const Header = () => {
-    // const { list: users } = useSelector(state => state.users);
+    const singOut = useSingOut()
 
-    // console.log(localStorage.email)
+
+    const {user, loading, collections} = useAuth()
+    
+    if(user) {
+        // console.log(collections)
+
+        // collections && collections.forEach(carro => {
+        //     console.log(carro)
+        // })
+
+    }
+    if(!user) console.log("sesion no iniciada") 
+
+    const HandleAcount = () => {
+        if (user){
+        return (
+            <>
+                    <li className="tagMini">
+                        <Link to="/" onClick={singOut}>Cerrar Sesion</Link>
+                    </li>
+                    <li className="iniciarSesion">
+                        <Link to="/iniciarSesion">{loading ? "" : user.email}</Link>
+                    </li>
+            </>
+        )} else {
+            return (
+                <>
+                        <li className="tagMini">
+                            <Link to="/crearCuenta">Crear cuenta</Link>
+                        </li>
+                        <li className="iniciarSesion">
+                            <Link to="/iniciarSesion">Iniciar sesion</Link>
+                        </li>
+                </>
+            )
+        }
+}
+
+
     return(
             <header>
                 <div className="divMarca">
@@ -20,12 +57,7 @@ const Header = () => {
                     <li className="tagMini">
                         <Link to="/toDo">Cartas</Link>
                     </li>
-                    <li className="tagMini">
-                        <Link to="/crearCuenta">Crear cuenta</Link>
-                    </li>
-                    <li className="iniciarSesion">
-                        <Link to="/iniciarSesion">Iniciar sesion</Link>
-                    </li>
+                    <HandleAcount />
                 </ul>
             </header>
     )

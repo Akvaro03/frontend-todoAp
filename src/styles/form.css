@@ -45,6 +45,7 @@
   .form .email input {
     outline: none;
     border: none;
+    width: 60%;
   }
   .form .email input::-moz-placeholder {
     color: black;
@@ -76,6 +77,7 @@
   .form .password input {
     outline: none;
     border: none;
+    width: 60%;
   }
   .form .password input::-moz-placeholder {
     color: black;

@@ -5,18 +5,18 @@ import { useAuth } from '../context/authContext'
 import { useNavigate } from 'react-router-dom'
 
 
-function Form() {
+function Login() {
     const [user, setUser] = useState({
-    email: "",
-    password: "",
-    username:""
-  });
-  const [error, setError] = useState(null)
-  const navigate = useNavigate()
-  const {singUp} = useAuth()
+        email: "",
+        password: "",
+        username:""
+    });
+    const [error, setError] = useState()
+    const navigate = useNavigate()
+    const {login} = useAuth()
 
   useEffect(() => {
-    error && console.log(error);
+    console.log(error);
   }, [error]); // Solo se vuelve a ejecutar si count cambia
 
   const handleChange = ({name,value}) => {
@@ -25,10 +25,11 @@ function Form() {
   const buscarCuenta = async e => { 
       e.preventDefault();
       try {
-        await singUp(user.email, user.password)     
+        const userCredential = await login(user.email, user.password)     
+        console.log(userCredential)
         navigate("/toDo")   
       } catch (error) {
-        setError(error)
+        setError(error.code)
       }
   };
 
@@ -38,7 +39,7 @@ function Form() {
           <div className="form">
               <img className="fondo" src={fondo} alt="svg botton"></img>
               <div className="divTittle">
-                  <h3>Crear nueva cuenta</h3>
+                  <h3>Iniciar sesion</h3>
               </div>
               <div className="content">
                 <form onSubmit={buscarCuenta}>
@@ -57,7 +58,7 @@ function Form() {
                       <ion-icon className="show-hide" name="eye-outline"></ion-icon>
                     </div>
                   </div>
-                <button className="login"> Create </button>
+                <button className="login"> Login </button>
                 </form>
               </div>
           </div>
@@ -66,4 +67,4 @@ function Form() {
 );
 }
 
-export default Form;
+export default Login;

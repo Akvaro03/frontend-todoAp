@@ -107,3 +107,26 @@
     display: flex;
     align-items: flex-end;
 }
+
+.divColor{
+    display: flex;
+    align-items: center;
+    margin-top: 2%;
+}
+
+.divColor > p{
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+.divContenedorButton{
+    width: 50%;
+    margin-top: 5%;
+}
+
+.divRadioButton{
+    display: flex;
+    justify-content: space-around;
+    margin: 5% 0;
+    margin-bottom: 0;
+}
