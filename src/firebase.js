@@ -1,14 +1,9 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getAuth, deleteUser } from "firebase/auth";
-// import { getDatabase } from "firebase/database";
+import { getAuth} from "firebase/auth";
 import {  addDoc, collection, doc, getDocs, getFirestore, onSnapshot, query, setDoc, where } from "firebase/firestore";
 
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyBkI1m2HD9kZdUf4HrKc5SBZfdWCcnmv14",
   authDomain: "todolist-sanjo.firebaseapp.com",
@@ -73,8 +68,6 @@ export const writeUserData = async (email, data) => {
   }
   
 }
-export let collection22 = "prueba";
-
 
 export const searchCollectionData = async (currentUser,hanlar) => {
   if(hanlar && currentUser){
@@ -101,6 +94,7 @@ export const searchCollectionData = async (currentUser,hanlar) => {
 
 export const writeCollectionData = async (email, data) =>{
   if (email && data) {
+    console.log("datos")
     const citiesRef = collection(db, "users");
 
     // Create a query against the collection.
@@ -111,7 +105,9 @@ export const writeCollectionData = async (email, data) =>{
     const querySnapshot = await getDocs(q);
 
   querySnapshot.forEach(async (documento) => {
+
   let datos = documento.data()
+  console.log("datos")
   let copia = {...datos} ;
   let nombre = data.name;
   let color = data.color;
@@ -120,35 +116,37 @@ export const writeCollectionData = async (email, data) =>{
 
   await setDoc(doc(db, "users", documento.id), copia);
 });
-    // querySnapshot.forEach((doc) => {
-    //   console.log(doc.id, " => ", doc.data());
-    // });    
   }
-
 }
 
 export const writeTodoData = async (email, data) => {
   if (email && data) {
     console.log(data.collectionsSelect)
+    console.log(email)
 
     const citiesRef = collection(db, "users");
-
-    // Create a query against the collection.
     const q = query(citiesRef, where("email", "==", email));
-    
-    // const q = query(collection(db, "users"), where("email", "==", "asdasdasd@gmail.com"));
-
     const querySnapshot = await getDocs(q);
-    querySnapshot.forEach( documento => {
-      let colecciones = documento.data().collections
 
-      colecciones.find( async (collection) => {
-        console.log(collection.nombre)
-      })
+    querySnapshot.forEach( documento => {
+      console.log(documento.data())
+      let document = {...documento.data()};
+      console.log(document)
+      let colecciones = document.collections
+      colecciones.forEach(coleccion => {
+        if(coleccion.nombre === data.collectionsSelect){
+          let copia = {...coleccion} ;
+          copia.datos.push(data)
+          setDoc(doc(db, "users", documento.id), document);
+          console.log(copia)
+        }
+      }
+      )
+      
+      // colecciones.find( (collection.nombre === data.collectionsSelect))
 
     });
       }
-  console.log(data)
 }
 
 writeUserData()

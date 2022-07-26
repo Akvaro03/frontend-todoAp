@@ -45,42 +45,48 @@ function Icons(props) {
 }
 
 export default function Todo(data) {
-    const datos = data.data
     const [selectedValue, setSelectedValue] = React.useState('false');
 
-    const handleChange = (event) => {
-        selectedValue === "false" ? setSelectedValue("true") : setSelectedValue("false");
-    };
-    return (
-        <div className="container-list">
-            <div className="data">
-                <div className="item">
-                    <Radio
-                        checked={selectedValue === "true"}
-                        onClick={handleChange}
-                        value="false"
-                        name="radio-buttons"
-                        inputProps={{ 'aria-label': 'A' }}
-                        sx={{color: datos.color, '&.Mui-checked': {
-                            color: datos.color,}}}
-                    />
-                </div>
-                <div className="texList">
-                    {datos.name}
-                </div>
-            </div>
-            <div className="extras">
-                <div className="collection">
-                    <Icons icon={datos.icon}/>
-                    <div className="texCollection">
-                        <p>{datos.collection}</p>
+    if (data.data) {
+
+        const datos = data.data
+        console.log(datos);
+
+        const handleChange = (event) => {
+            selectedValue === "false" ? setSelectedValue("true") : setSelectedValue("false");
+        };
+        return (
+            <div className="container-list">
+                <div className="data">
+                    <div className="item">
+                        <Radio
+                            checked={selectedValue === "true"}
+                            onClick={handleChange}
+                            value="false"
+                            name="radio-buttons"
+                            inputProps={{ 'aria-label': 'A' }}
+                            sx={{color: datos.color, '&.Mui-checked': {
+                                color: datos.color,}}}
+                        />
+                    </div>
+                    <div className="texList">
+                        {datos.name}
                     </div>
                 </div>
-                <div className="date">
-                    <h3>{datos.day}</h3>
-                    <p>{datos.time}</p>
+                <div className="extras">
+                    <div className="collection">
+                        <Icons icon={datos.icon}/>
+                        <div className="texCollection">
+                            <p>{datos.collectionsSelect}</p>
+                        </div>
+                    </div>
+                    <div className="date">
+                        <h3>{datos.day}</h3>
+                        <p>{datos.time}</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    );
+        );
+    
+    } 
 }

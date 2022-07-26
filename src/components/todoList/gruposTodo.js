@@ -8,9 +8,6 @@ import AppsIcon from '@mui/icons-material/Apps';
 import TextField from '@mui/material/TextField';
 import styled from '@emotion/styled';
 
-import { fetchAllUsers, handleChange } from '../../redux/slices/users';
-import { useDispatch, useSelector } from 'react-redux';
-
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import AttachEmailIcon from '@mui/icons-material/AttachEmail';
@@ -24,10 +21,9 @@ import { useAuth } from '../../context/authContext';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
-  });
-  
+});
 function GruposTodo() {
-    const {user, loading, handleChange, collections} = useAuth()
+    const {user, handleChange, collections} = useAuth()
     const [open, setOpen] = React.useState(false);
     const [name, setName] = React.useState(true);
     const [icon, setIcon] = React.useState(true);
@@ -88,6 +84,10 @@ function GruposTodo() {
             color:"white"
         }
     });
+
+    // collections && collections.forEach((colection) => console.log(colection.datos))
+    // console.log("separados")
+    // collections && collections.forEach((colection) => console.log(colection.datos.forEach((datos) => console.log(datos.name))))
     return (
         <div className="GruposTodo">
             <Dialog
@@ -163,7 +163,7 @@ function GruposTodo() {
                         <h3 className="">Reminders</h3>
                 </div>
                 <div className="tasks-list">
-                    {collections && collections.map((colection, index) => <Collection key={index} name={colection.nombre} theme={colection.theme} icon={colection.icon} />)}
+                    {collections && collections.map((colection, index) => <Collection key={index} datos={colection.datos} name={colection.nombre} theme={colection.theme} icon={colection.icon} />)}
                 </div>
             </div>
         </div>

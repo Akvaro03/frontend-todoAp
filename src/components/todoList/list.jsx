@@ -4,9 +4,18 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import {Todo} from '../index';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllUsers } from '../../redux/slices/users';
+import { useAuth } from '../../context/authContext';
+
+function Optional() {
+    return (
+        <h1>hola</h1>
+    )
+}
 
 function List() {
     const { list } = useSelector(state => state.users);
+    const {collections} = useAuth()
+
     const collections23 = [];
 
     const dispatch = useDispatch();
@@ -16,10 +25,15 @@ function List() {
     }, [dispatch])
 
     list.map(user => collections23.push(user))
+    let dato1;
+    if (collections) {
+        dato1 = collections[0].datos[0];
+        console.log("se cargo");
+        console.log(dato1);
+    }
+    // collections && console.log(collections[0].datos[0])
 
-
-
-
+    
     const task1 = {
         name: 'Comprar componentes',
         color:"black",
@@ -62,7 +76,9 @@ function List() {
                 </div>
             </div>
             <div className="content-container">
-                {users.map((task, index) =>  <Todo key={index} data={task} /> )}
+                {/* {users.map((task, index) =>  <Todo key={index} data={task} /> )} */}
+                { <Todo data={dato1} />}
+
             </div>
         </div>
     );

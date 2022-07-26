@@ -5,7 +5,7 @@ import {GruposTodo, List} from '../index';
 import Box from '@mui/material/Box';
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
-import { Autocomplete, Backdrop, Button, CircularProgress, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Slide, Stack, TextField } from '@mui/material';
+import { Autocomplete, Backdrop, Button, CircularProgress, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Stack, TextField } from '@mui/material';
 import { useAuth } from '../../context/authContext';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
@@ -79,7 +79,6 @@ function BodyTodo() {
             time
         }
         e.preventDefault()
-        console.log(json)
         submitTodosDatos(user.email, json)
     }    
 

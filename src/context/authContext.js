@@ -1,6 +1,6 @@
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
 import { createContext, useContext, useEffect, useState } from "react";
-import { auth, collection22, searchCollectionData, writeCollectionData, writeTodoData, writeUserData } from "../firebase";
+import { auth, searchCollectionData, writeCollectionData, writeTodoData, writeUserData } from "../firebase";
 
 
 export const authContext = createContext()
@@ -28,7 +28,7 @@ export  function AuthProvider ({children}) {
 
     const handleChange = async (email, data) => await writeCollectionData(email, data)
 
-    const submitTodos = (email, data) => writeCollectionData(email, data)
+    // const submitTodos = (email, data) => writeCollectionData(email, data)
     
     const submitTodosDatos  = (email, data) => writeTodoData(email, data)
 
@@ -50,7 +50,7 @@ export  function AuthProvider ({children}) {
 
 
     return (
-        <authContext.Provider value={{singUp, login, logOut, handleChange, submitTodos, submitTodosDatos,collections, loading, user}}>
+        <authContext.Provider value={{singUp, login, logOut, handleChange, submitTodosDatos,collections, loading, user}}>
             {children}
         </authContext.Provider>
     )

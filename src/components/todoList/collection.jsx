@@ -18,10 +18,9 @@ const StyledBadge = styled(Badge)(({ border }) => ({
 
 
 
-function Collection({name, theme, icon}) {
+function Collection({name, theme, icon,datos}) {
     const [handleIcon] = useIcons()
     const dispatch = useDispatch();
-
     let cambiarEstado = () => {
         dispatch(handleChange("hola"));
     }
@@ -36,7 +35,7 @@ function Collection({name, theme, icon}) {
         <div className="list list-active" style={configuracion} onClick={cambiarEstado}>
             <div className="icon-list">
                 <IconButton aria-label="cart">
-                    <StyledBadge badgeContent={4} border={theme} color="secondary">
+                    <StyledBadge badgeContent={datos.length} border={theme} color="secondary">
                         {handleIcon(icon, theme)}
                     </StyledBadge>
                 </IconButton>
