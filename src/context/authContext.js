@@ -15,6 +15,7 @@ export const useAuth = () => {
 export  function AuthProvider ({children}) {
     const [user, setUser] = useState(null)
     const [collections, setCollections] = useState(null)
+    const [state, setState] = useState("all")
     const [loading, setLoading] = useState(true)
 
     const singUp = async (email, password) => {
@@ -27,6 +28,7 @@ export  function AuthProvider ({children}) {
     const login = (email, password) => signInWithEmailAndPassword(auth, email, password)
 
     const handleChange = async (email, data) => await writeCollectionData(email, data)
+    const handleChangeState = async (email) => setState(email)
 
     // const submitTodos = (email, data) => writeCollectionData(email, data)
     
@@ -50,7 +52,7 @@ export  function AuthProvider ({children}) {
 
 
     return (
-        <authContext.Provider value={{singUp, login, logOut, handleChange, submitTodosDatos,collections, loading, user}}>
+        <authContext.Provider value={{singUp, login, logOut, handleChange, handleChangeState, submitTodosDatos,collections, loading, user, state}}>
             {children}
         </authContext.Provider>
     )

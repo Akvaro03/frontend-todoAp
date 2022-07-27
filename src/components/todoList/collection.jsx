@@ -7,6 +7,7 @@ import { styled } from '@mui/material/styles';
 import Badge from '@mui/material/Badge';
 import { handleChange } from '../../redux/slices/users';
 import { useDispatch } from 'react-redux';
+import { useAuth } from '../../context/authContext';
 const StyledBadge = styled(Badge)(({ border }) => ({
     '& .MuiBadge-badge': {
         border: `2px solid ${border}`,
@@ -17,11 +18,13 @@ const StyledBadge = styled(Badge)(({ border }) => ({
 }));
 
 
-
 function Collection({name, theme, icon,datos}) {
+    const {handleChangeState} = useAuth()
+
     const [handleIcon] = useIcons()
     const dispatch = useDispatch();
     let cambiarEstado = () => {
+        handleChangeState(name)
         dispatch(handleChange("hola"));
     }
     let configuracion = {};

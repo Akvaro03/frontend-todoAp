@@ -85,9 +85,6 @@ function GruposTodo() {
         }
     });
 
-    // collections && collections.forEach((colection) => console.log(colection.datos))
-    // console.log("separados")
-    // collections && collections.forEach((colection) => console.log(colection.datos.forEach((datos) => console.log(datos.name))))
     return (
         <div className="GruposTodo">
             <Dialog
