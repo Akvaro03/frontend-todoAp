@@ -11,9 +11,9 @@ import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 import BookmarksIcon from '@mui/icons-material/Bookmarks';
 function Icons(props) {
     const icon = props.icon;
-
+    console.log(icon)
     switch (icon) {
-        case "cart":
+        case "card":
             return <ShoppingCartIcon />;
 
         case "email":
@@ -41,7 +41,16 @@ function Icons(props) {
         return <BusinessCenterIcon />;
     } else if (icon === 'email'){
         return <AttachEmailIcon />;
+    } else if (icon === 'card'){
+        return <AutoAwesomeMotionIcon />;
+    } else if (icon === 'copie'){
+        return <AttachEmailIcon />;
+    } else if (icon === 'stories'){
+        return <AutoStoriesIcon />;
+    } else if (icon === 'books'){
+        return <BookmarksIcon />;
     }
+
 }
 
 export default function Todo(data) {

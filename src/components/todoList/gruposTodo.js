@@ -23,7 +23,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
 function GruposTodo() {
-    const {user, handleChange, collections} = useAuth()
+    const {user, handleChange, collections, handleChangeState} = useAuth()
     const [open, setOpen] = React.useState(false);
     const [name, setName] = React.useState(true);
     const [icon, setIcon] = React.useState(true);
@@ -84,6 +84,10 @@ function GruposTodo() {
             color:"white"
         }
     });
+    
+    function cambiarEstado (e) {
+        handleChangeState("All")    
+    }
 
     return (
         <div className="GruposTodo">
@@ -141,7 +145,6 @@ function GruposTodo() {
                     </DialogActions>
                     </form>
             </Dialog>
-
             <div className="nosenosenose">
                 <div className="serch">
                     <CssTextField id="outlined-basic" label="Search Tasks" variant="outlined" />
@@ -151,7 +154,7 @@ function GruposTodo() {
                 </div>
                 <div className="all">
                     <AppsIcon style={{ color: "grey" }}  />
-                    <p className="text-list" >All tasks</p>
+                    <p className="text-list" onClick={cambiarEstado} >All tasks</p>
                 </div>
                 <div className="title-todo">
                     <div>

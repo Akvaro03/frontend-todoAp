@@ -8,7 +8,7 @@ import BookmarksIcon from '@mui/icons-material/Bookmarks';
 export default function useIcons() {
     const handleIcon = (icon, theme) => {        
         switch (icon) {
-            case "cart":
+            case "card":
                 return <ShoppingCartIcon style={{ color: theme }} color="action" />;
     
             case "email":

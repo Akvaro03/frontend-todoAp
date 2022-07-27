@@ -8,6 +8,7 @@ import Badge from '@mui/material/Badge';
 import { handleChange } from '../../redux/slices/users';
 import { useDispatch } from 'react-redux';
 import { useAuth } from '../../context/authContext';
+
 const StyledBadge = styled(Badge)(({ border }) => ({
     '& .MuiBadge-badge': {
         border: `2px solid ${border}`,

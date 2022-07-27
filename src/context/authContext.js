@@ -15,7 +15,7 @@ export const useAuth = () => {
 export  function AuthProvider ({children}) {
     const [user, setUser] = useState(null)
     const [collections, setCollections] = useState(null)
-    const [state, setState] = useState("all")
+    const [state, setState] = useState("All")
     const [loading, setLoading] = useState(true)
 
     const singUp = async (email, password) => {
@@ -28,7 +28,7 @@ export  function AuthProvider ({children}) {
     const login = (email, password) => signInWithEmailAndPassword(auth, email, password)
 
     const handleChange = async (email, data) => await writeCollectionData(email, data)
-    const handleChangeState = async (email) => setState(email)
+    const handleChangeState = async (nombreEstado) => setState(nombreEstado)
 
     // const submitTodos = (email, data) => writeCollectionData(email, data)
     
