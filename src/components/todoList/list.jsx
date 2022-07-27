@@ -6,12 +6,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllUsers } from '../../redux/slices/users';
 import { useAuth } from '../../context/authContext';
 
-function Optional() {
-    return (
-        <h1>hola</h1>
-    )
-}
-
 function List() {
     const { list } = useSelector(state => state.users);
     const {collections} = useAuth()
@@ -24,12 +18,17 @@ function List() {
         dispatch(fetchAllUsers());
     }, [dispatch])
 
+    let todos = []
+
     list.map(user => collections23.push(user))
     let dato1;
     if (collections) {
-        dato1 = collections[0].datos[0];
-        console.log("se cargo");
-        console.log(dato1);
+        collections.forEach(element => {
+            let datos = element.datos;
+            datos.forEach(todo => todos.push(todo))
+        });
+        let datos = collections[0].datos
+        dato1 = datos[datos.length - 1];
     }
     // collections && console.log(collections[0].datos[0])
 
@@ -76,8 +75,8 @@ function List() {
                 </div>
             </div>
             <div className="content-container">
-                {/* {users.map((task, index) =>  <Todo key={index} data={task} /> )} */}
-                { <Todo data={dato1} />}
+                {todos.map((task, index) =>  <Todo key={index} data={task} /> )}
+                {/* { <Todo data={dato1} />} */}
 
             </div>
         </div>

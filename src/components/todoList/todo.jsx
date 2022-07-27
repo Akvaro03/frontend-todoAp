@@ -50,7 +50,6 @@ export default function Todo(data) {
     if (data.data) {
 
         const datos = data.data
-        console.log(datos);
 
         const handleChange = (event) => {
             selectedValue === "false" ? setSelectedValue("true") : setSelectedValue("false");

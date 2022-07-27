@@ -133,10 +133,14 @@ export const writeTodoData = async (email, data) => {
       let document = {...documento.data()};
       console.log(document)
       let colecciones = document.collections
+      
       colecciones.forEach(coleccion => {
         if(coleccion.nombre === data.collectionsSelect){
+          
           let copia = {...coleccion} ;
-          copia.datos.push(data)
+          let cambio = {...data, "icon": coleccion.icon}
+          console.log(cambio)
+          copia.datos.push(cambio)
           setDoc(doc(db, "users", documento.id), document);
           console.log(copia)
         }
