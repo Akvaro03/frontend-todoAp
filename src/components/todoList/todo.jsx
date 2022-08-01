@@ -9,9 +9,21 @@ import AttachEmailIcon from '@mui/icons-material/AttachEmail';
 import AutoAwesomeMotionIcon from '@mui/icons-material/AutoAwesomeMotion';
 import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 import BookmarksIcon from '@mui/icons-material/Bookmarks';
+
+let restaFechas = function(f1,f2)
+{
+var aFecha1 = f1.split('/');
+var aFecha2 = f2.split('/');
+var fFecha1 = Date.UTC(aFecha1[2],aFecha1[1]-1,aFecha1[0]);
+var fFecha2 = Date.UTC(aFecha2[2],aFecha2[1]-1,aFecha2[0]);
+var dif = fFecha2 - fFecha1;
+var dias = Math.floor(dif / (1000 * 60 * 60 * 24));
+return dias;
+}
+
+
 function Icons(props) {
     const icon = props.icon;
-    console.log(icon)
     switch (icon) {
         case "card":
             return <ShoppingCartIcon />;
@@ -63,6 +75,11 @@ export default function Todo(data) {
         const handleChange = (event) => {
             selectedValue === "false" ? setSelectedValue("true") : setSelectedValue("false");
         };
+        let segundos = datos.date.seconds
+        let dayActual = new Date().toLocaleDateString()
+        let dayTodo = new Date(segundos * 1000).toLocaleDateString()
+        let diferencia = restaFechas(dayActual,dayTodo)
+
         return (
             <div className="container-list">
                 <div className="data">
@@ -89,7 +106,7 @@ export default function Todo(data) {
                         </div>
                     </div>
                     <div className="date">
-                        <h3>{datos.day}</h3>
+                        <h3>{`Faltan ${diferencia} dias`}</h3>
                         <p>{datos.time}</p>
                     </div>
                 </div>

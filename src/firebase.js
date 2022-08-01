@@ -36,7 +36,6 @@ export const writeUserData = async (email, data) => {
   }
 
   if (email && data) {
-    console.log(data1)
 
     // await addDoc(collection(db, "users"), {
     //   email: email1,
@@ -45,7 +44,6 @@ export const writeUserData = async (email, data) => {
     const citiesRef = collection(db, "users");
 
     // Create a query against the collection.
-    console.log(email)
     const q = query(citiesRef, where("email", "==", email));
     
     // const q = query(collection(db, "users"), where("email", "==", "asdasdasd@gmail.com"));
@@ -62,9 +60,6 @@ export const writeUserData = async (email, data) => {
 
   await setDoc(doc(db, "users", documento.id), copia);
 });
-    // querySnapshot.forEach((doc) => {
-    //   console.log(doc.id, " => ", doc.data());
-    // });    
   }
   
 }
@@ -80,7 +75,6 @@ export const searchCollectionData = async (currentUser,hanlar) => {
     // querySnapshot.forEach(async (documento) => {
     //   let datos = documento.data()
     //   email = datos.email
-    //   console.log(datos)
     //   });
     
     onSnapshot(doc(db, "users", id), async (doc) => {
@@ -88,13 +82,11 @@ export const searchCollectionData = async (currentUser,hanlar) => {
       hanlar(datos.collections)
     })
   }
-  // console.log(dato)
   
 }
 
 export const writeCollectionData = async (email, data) =>{
   if (email && data) {
-    console.log("datos")
     const citiesRef = collection(db, "users");
 
     // Create a query against the collection.
@@ -107,7 +99,6 @@ export const writeCollectionData = async (email, data) =>{
   querySnapshot.forEach(async (documento) => {
 
   let datos = documento.data()
-  console.log("datos")
   let copia = {...datos} ;
   let nombre = data.name;
   let color = data.color;
@@ -121,28 +112,22 @@ export const writeCollectionData = async (email, data) =>{
 
 export const writeTodoData = async (email, data) => {
   if (email && data) {
-    console.log(data.collectionsSelect)
-    console.log(email)
 
     const citiesRef = collection(db, "users");
     const q = query(citiesRef, where("email", "==", email));
     const querySnapshot = await getDocs(q);
 
     querySnapshot.forEach( documento => {
-      console.log(documento.data())
       let document = {...documento.data()};
-      console.log(document)
       let colecciones = document.collections
       
       colecciones.forEach(coleccion => {
         if(coleccion.nombre === data.collectionsSelect){
-          
           let copia = {...coleccion} ;
           let cambio = {...data, "icon": coleccion.icon}
-          console.log(cambio)
           copia.datos.push(cambio)
+          console.log(document)
           setDoc(doc(db, "users", documento.id), document);
-          console.log(copia)
         }
       }
       )

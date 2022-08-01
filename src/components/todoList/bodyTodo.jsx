@@ -62,7 +62,6 @@ function BodyTodo() {
     };
     const handleTime = (e) => {
         setTime(e.target.value)
-        console.log(e.target.value)
     }
 
 
@@ -78,6 +77,7 @@ function BodyTodo() {
             color,
             time
         }
+        console.log(json)
         e.preventDefault()
         submitTodosDatos(user.email, json)
     }    
